@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Raleway:wght@200;500;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;800;900&display=swap");
+@font-face {
+  font-family: "fontSpring";
+  src: url("./Fontspring-DEMO-integralcf-extrabold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "ghiantin";
+  src: url("./Ghiantin-subset.woff2");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-display: block;
+}
+body {
+  background-color: #111b21;
+  color: white;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+.preloader {
+  height: 100vh;
+  padding: 30px;
+  position: absolute;
+  top: 0;
+  background-color: #111b21;
+  width: 100%;
+  z-index: 3;
+}
+.preloader .preloaderTextContainer {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  font-size: 4.6rem;
+  /* background-color: red; */
+  margin-bottom: 0.5rem;
+}
+.preloader .preloaderText {
+  font-family: "fontSpring";
+  overflow: hidden;
+}
+.preloader .better span {
+  top: -100px;
+  position: relative;
+}
+.preloader .faster span {
+  top: 100px;
+  position: relative;
+}
+.preloader .seamless span {
+  opacity: 0;
+}
+.preloader .experience span {
+  opacity: 0;
+}
+.preloader .sideText {
+  font-family: "ghiantin";
+  position: absolute;
+  left: 30%;
+  /* color: #25d366; */
+}
+.container {
+  width: 100%;
+  font-family: "Unbounded";
+  height: 100vh;
+}
+.chatTitleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 1rem; */
+  margin-top: 3.5rem;
+  z-index: 5;
+  width: 100%;
+  background-color: #111b21;
+}
+.chatTitle {
+  background-color: #111b21;
+  position: fixed;
+  text-align: center;
+  font-family: "Unbounded";
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  font-weight: 200;
+  font-size: 1rem;
+}
+.rinoIconContainer {
+  /* background-color: red; */
+  overflow: hidden;
+}
+.thinking {
+  position: absolute;
+  right: -200%;
+  top: -100%;
+  opacity: 0;
+}
+.secondThinking {
+  top: -30%;
+  right: -90%;
+  position: absolute;
+  transition: 0.5s;
+  opacity: 0;
+  /* background-color: red; */
+}
+.chatHeadContainer {
+  position: relative;
+}
+.thinkingDots {
+  display: flex;
+  gap: 4px;
+  position: absolute;
+  top: 33%;
+  left: 28%;
+}
+.thinkingDot {
+  width: 2.5px;
+  height: 2.5px;
+  background-color: white;
+  border-radius: 50%;
+}
+.userIconContainer {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #502808;
+}
+.nameFirstLetter {
+  font-family: "Unbounded";
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: white;
+}
+.chatRoom {
+  /* background-color: red; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+.chatRoom .innerChatRoom {
+  /* background-color: red; */
+  margin-top: 3rem;
+  width: 80%;
+}
+.userMessage {
+  margin-right: 10px;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 200;
+  text-align: end;
+}
+.rinoMessage {
+  max-width: 70%;
+  /* position: ; */
+  /* background-color: rebeccapurple; */
+}
+.rinovateLogoSpace {
+  width: 25px;
+  /* height: 30px; */
+  transition: 0.3s all;
+  display: inline-block;
+  /* background-color: aqua; */
+  overflow: hidden;
+}
+.downSvg {
+  transition: all 0.3s cubic-bezier(0.85, 0.29, 0.74, 1.07);
+  transform: translateY(30px);
+}
+.upSvg {
+  transition: all 0.4s cubic-bezier(0.43, 0.84, 0.65, 1.12);
+  transform: translateY(0px);
+}
+.ourName {
+  color: #25d366;
+}
+.fixedInputBox {
+  position: fixed;
+  bottom: 1%;
+  /* background-color: red; */
+  width: 100%;
+}
+.suggestions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  /* background-color: red; */
+}
+.suggestion {
+  padding: 20px 40px;
+  cursor: pointer;
+}
+.suggestions .suggestionTitle {
+  font-weight: 200;
+}
+.fixedInputBox .inputBox {
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+}
+.fixedInputBox input {
+  width: 100%;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  padding: 20px;
+  font-family: "Unbounded";
+  display: flex;
+}
+.fixedInputBox .inputInnerBox {
+  position: relative;
+  width: 50%;
+}
+.cursor {
+  width: 6px;
+  display: inline-block;
+  /* position: absolute; */
+  height: 20px;
+  background-color: white;
+  /* visibility: hidden; */
+  animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.fixedInputBox .iconContainer {
+  background-color: white;
+  display: flex;
+  cursor: pointer;
+  transition: 0.5s;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 2%;
+  top: 13%;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+.footerText {
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  font-family: "Unbounded";
+  font-weight: 200;
+  text-align: center;
+}
