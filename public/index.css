@@ -76,7 +76,7 @@ body {
   margin-top: 3.5rem;
   z-index: 5;
   width: 100%;
-  background-color: #111b21;
+  background-color: #0aa1ff;
 }
 .chatTitle {
   background-color: #111b21;
@@ -183,22 +183,41 @@ body {
 }
 .fixedInputBox {
   position: fixed;
-  bottom: 1%;
-  /* background-color: red; */
+  bottom: 0%;
+  background-color: #111b21;
   width: 100%;
+}
+.contactImage {
+  display: inline-block;
+  width: 600px;
+  height: 600px;
+  border-radius: 10px;
+}
+.suggestionsContainer {
+  overflow-x: auto;
 }
 .suggestions {
   display: flex;
   gap: 20px;
   justify-content: center;
-  /* background-color: red; */
+}
+.suggestionsContainer::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
 }
 .suggestion {
-  padding: 20px 40px;
+  overflow: hidden;
+  flex: 0 0 auto;
+  /* background-color: red; */
+  padding: 20px 10px;
   cursor: pointer;
+}
+.suggestion:hover {
+  color: #25d366;
 }
 .suggestions .suggestionTitle {
   font-weight: 200;
+  transform: translateY(50px);
 }
 .fixedInputBox .inputBox {
   /* background-color: red; */

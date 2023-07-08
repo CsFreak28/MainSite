@@ -24,12 +24,3 @@ const handleScroll = () => {
 
 // Attach the scroll event listener to the window
 window.addEventListener("scroll", handleScroll);
-function startChat() {
-  sendUserMessage("Hey!!");
-  let msgObj = {
-    type: "preWritten",
-    msg: "Hey",
-  };
-  processUserMessage(msgObj);
-}
-startChat();
