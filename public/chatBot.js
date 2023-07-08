@@ -44,7 +44,9 @@ function bringRinovateLogoUp() {
   let upSvg = document.querySelector(".upSvg");
   upSvg.classList.replace("upSvg", "downSvg");
   document.querySelector(".rinovateLogoSpace").style.width = "0px";
-  let downSvg;
+  let downSvg = document.querySelector(".downSvg");
+  downSvg.classList.replace("downSvg", "upSvg");
+  upSvg.remove();
 }
 export function sendUserMessage(usersMessage) {
   let paragraph = createUserMessage(usersMessage);
