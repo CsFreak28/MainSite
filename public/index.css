@@ -76,7 +76,6 @@ body {
   margin-top: 3.5rem;
   z-index: 5;
   width: 100%;
-  background-color: #0aa1ff;
 }
 .chatTitle {
   background-color: #111b21;
@@ -149,6 +148,7 @@ body {
 }
 .chatRoom .innerChatRoom {
   /* background-color: red; */
+  margin-bottom: 10rem;
   margin-top: 3rem;
   width: 80%;
 }
@@ -181,6 +181,18 @@ body {
 .ourName {
   color: #25d366;
 }
+.filler {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 100px;
+  background-color: #111b21;
+}
+.flexParentContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
 .fixedInputBox {
   position: fixed;
   bottom: 0%;
@@ -188,10 +200,19 @@ body {
   width: 100%;
 }
 .contactImage {
-  display: inline-block;
-  width: 600px;
-  height: 600px;
+  display: block;
+  width: 400px;
+  object-fit: cover;
+  height: 400px;
   border-radius: 10px;
+}
+.socialMediaLinksContainer {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.contactParagraph {
+  background-color: red;
 }
 .suggestionsContainer {
   overflow-x: auto;
