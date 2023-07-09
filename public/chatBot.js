@@ -3,6 +3,7 @@ import {
   getRinovateIsTypingValue,
   setRinovateHasFinishedTyping,
 } from "./globalState.js";
+import { addContactOptions, addContactUsImage } from "./utils.js";
 export function processUserMessage(msgObj) {
   rinovateIsTyping();
   if (msgObj.type == "preWritten") {
@@ -33,13 +34,20 @@ function processPreWrittenMsg(msg) {
     // }, 1500);
   } else if (msg == "What is rinovate about") {
   } else if (msg.includes("How do I contact Rinovate")) {
-    let text = wrapWordWithSpan("Well that's very easy");
+    let text = wrapWordWithSpan("WELL THAT'S VERY EASY!!\nMEET DANIEL");
     rinovateIsNoLongerTyping();
     let element = appendRinoMessage();
     bringRinovateDownToType().then(() => {
       typeTextWithPauses(text, [""], element).then(() => {
         //rinovate has finished typing
         //addImage of daniel
+        let contactUsP = addContactUsImage(element);
+        typeTextWithPauses(
+          "Gideon this is Daniel,\nDaniel is our Social Media Manager and Rinovate's customer service.He'd be more than happy to reach out to you.\nHow would you like to be reached ?",
+          [""],
+          contactUsP
+        );
+        addContactOptions(contactUsP);
         //type again
         moveRinovateLogoUp(element);
         setRinovateHasFinishedTyping();
