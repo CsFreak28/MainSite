@@ -1,4 +1,5 @@
 import { showSuggestions } from "./animations.js";
+import { addUniversity } from "./extra.js";
 import {
   getRinovateIsTypingValue,
   setRinovateHasFinishedTyping,
@@ -15,6 +16,73 @@ export function processUserMessage(msgObj) {
   } else {
     //send to trained chat gpt model
   }
+}
+export async function typeTextWithPauses(text, pauseWords, elementToAppend) {
+  const outputElement = elementToAppend.querySelector(".outputElement");
+  const cursorElement = elementToAppend.querySelector(".cursor");
+  let currentWordIndex = 0;
+  let currentCharIndex = 0;
+
+  function typeNextChar() {
+    if (currentCharIndex === text.length) {
+      return; // End of text
+    }
+
+    const char = text.charAt(currentCharIndex);
+    const nextChar = text.charAt(currentCharIndex + 1);
+    const currentWord = text.split(" ")[currentWordIndex];
+    const isPauseWord = pauseWords.includes(currentWord);
+
+    if (char === "<") {
+      // Skip HTML tags
+      const endIndex = text.indexOf(">", currentCharIndex);
+      currentCharIndex = endIndex !== -1 ? endIndex + 1 : currentCharIndex;
+    } else if (char === "&") {
+      // Handle HTML entities
+      const endIndex = text.indexOf(";", currentCharIndex);
+      outputElement.innerHTML += text.substring(currentCharIndex, endIndex + 1);
+      currentCharIndex = endIndex + 1;
+    } else {
+      if (currentWord === "Rinovate") {
+        outputElement.innerHTML += `<span class="ourName">${char}`;
+        currentCharIndex++;
+        while (
+          currentCharIndex < text.length &&
+          text.charAt(currentCharIndex) !== " "
+        ) {
+          outputElement.innerHTML += text.charAt(currentCharIndex);
+          currentCharIndex++;
+        }
+        outputElement.innerHTML += "</span>";
+      } else {
+        outputElement.innerHTML += char;
+        currentCharIndex++;
+      }
+    }
+
+    if (char === " " || nextChar === "\n") {
+      currentWordIndex++;
+    }
+
+    if (char === "\n") {
+      outputElement.innerHTML += "<br>";
+      currentWordIndex = 0;
+    }
+
+    if (isPauseWord) {
+      return delay(2000).then(typeNextChar);
+    } else {
+      return delay(20).then(typeNextChar);
+    }
+  }
+
+  await typeNextChar();
+
+  // Code execution will continue after the typing is finished
+  console.log("Typing finished!");
+
+  // Update cursor visibility
+  cursorElement.style.visibility = "hidden";
 }
 function processPreWrittenMsg(msg) {
   if (msg.includes("Hey")) {
@@ -68,8 +136,31 @@ function processPreWrittenMsg(msg) {
     });
   } else if (msg.includes("clients")) {
     // rinovateIsNoLongerTyping()
-    let element = appendRinoMessage();
-    bringRinovateDownToType();
+    //start looping function
+    const unis = [
+      {
+        uniName: `Coal city university   Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, dolor nisi libero et dolorum tenetur! Vero quasi iste architecto quia a nam, beatae eum facilis, praesentium nemo, odit corporis corrupti.
+          Recusandae quis cum voluptas vel amet inventore veniam magni doloremque quam temporibus facere delectus accusantium fugit beatae magnam quia dolorem maiores, laudantium incidunt placeat numquam esse? Blanditiis aperiam autem numquam?
+          Minus nam ipsam sequi modi quasi maxime quo, repellendus assumenda? Harum cumque rerum, ea inventore itaque ex iure? At, officia tempore. Natus esse iure quae quaerat sit dicta possimus ut!`,
+        img: "/public/images/CCUNI LOGO.png",
+        collabDetails: "",
+      },
+      {
+        uniName: "AE-FUNAI ",
+        img: "",
+        collabDetails: "",
+      },
+    ];
+    async function showUnis() {
+      for (let i = 0; i < unis.length; i++) {
+        let uni = unis[i];
+        let element = appendRinoMessage();
+        await bringRinovateDownToType();
+        await addUniversity(element, uni);
+        moveRinovateLogoUp(element);
+      }
+    }
+    showUnis();
   }
 }
 async function bringRinovateDownToType() {
@@ -155,73 +246,6 @@ function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function typeTextWithPauses(text, pauseWords, elementToAppend) {
-  const outputElement = elementToAppend.querySelector(".outputElement");
-  const cursorElement = elementToAppend.querySelector(".cursor");
-  let currentWordIndex = 0;
-  let currentCharIndex = 0;
-
-  function typeNextChar() {
-    if (currentCharIndex === text.length) {
-      return; // End of text
-    }
-
-    const char = text.charAt(currentCharIndex);
-    const nextChar = text.charAt(currentCharIndex + 1);
-    const currentWord = text.split(" ")[currentWordIndex];
-    const isPauseWord = pauseWords.includes(currentWord);
-
-    if (char === "<") {
-      // Skip HTML tags
-      const endIndex = text.indexOf(">", currentCharIndex);
-      currentCharIndex = endIndex !== -1 ? endIndex + 1 : currentCharIndex;
-    } else if (char === "&") {
-      // Handle HTML entities
-      const endIndex = text.indexOf(";", currentCharIndex);
-      outputElement.innerHTML += text.substring(currentCharIndex, endIndex + 1);
-      currentCharIndex = endIndex + 1;
-    } else {
-      if (currentWord === "Rinovate") {
-        outputElement.innerHTML += `<span class="ourName">${char}`;
-        currentCharIndex++;
-        while (
-          currentCharIndex < text.length &&
-          text.charAt(currentCharIndex) !== " "
-        ) {
-          outputElement.innerHTML += text.charAt(currentCharIndex);
-          currentCharIndex++;
-        }
-        outputElement.innerHTML += "</span>";
-      } else {
-        outputElement.innerHTML += char;
-        currentCharIndex++;
-      }
-    }
-
-    if (char === " " || nextChar === "\n") {
-      currentWordIndex++;
-    }
-
-    if (char === "\n") {
-      outputElement.innerHTML += "<br>";
-      currentWordIndex = 0;
-    }
-
-    if (isPauseWord) {
-      return delay(2000).then(typeNextChar);
-    } else {
-      return delay(20).then(typeNextChar);
-    }
-  }
-
-  await typeNextChar();
-
-  // Code execution will continue after the typing is finished
-  console.log("Typing finished!");
-
-  // Update cursor visibility
-  cursorElement.style.visibility = "hidden";
-}
 // Usage example:
 
 // typeTextWithPauses("superman is probably the\n fastest man on earth", ["man"]);
