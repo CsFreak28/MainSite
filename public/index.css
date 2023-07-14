@@ -127,7 +127,7 @@ body {
   /* height: 30px; */
   transition: 0.3s all;
   display: inline-block;
-  /* background-color: aqua; */
+  background-color: aqua;
   overflow: hidden;
 }
 .downSvg {
@@ -188,9 +188,7 @@ body {
 }
 .animation_container {
   margin-top: 1rem;
-  /* font-family: "ghiantin"; */
   display: block;
-  /* background-color: red; */
 }
 .tk-blob {
   width: 100px;
