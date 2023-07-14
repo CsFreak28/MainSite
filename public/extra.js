@@ -1,14 +1,19 @@
 import { processUserMessage, sendUserMessage } from "./chatBot.js";
-
+export function addUniversityLogo() {
+  let logoSpace = elememt.querySelector(".rinovateLogoSpace");
+  //add multiplication sign
+  let theMultiplicationSign = document.createElement("span");
+  theMultiplicationSign.textContent = "x";
+  theMultiplicationSign.classList.add("multiplicationSign");
+  //add the school's logo
+}
 const navbar = document.querySelector(".chatTitle");
 
 // Variable to keep track of scroll position
 let previousScrollPosition = window.pageYOffset;
-console.log("sduper");
 // Function to handle scroll event
 const handleScroll = () => {
   // Get the current scroll position
-  console.log("john", navbar);
   const currentScrollPosition = window.pageYOffset;
 
   if (currentScrollPosition > previousScrollPosition) {
