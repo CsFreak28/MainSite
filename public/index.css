@@ -123,12 +123,15 @@ body {
   width: 100%;
 }
 .rinovateLogoSpace {
-  width: 25px;
+  width: fit-content;
   /* height: 30px; */
   transition: 0.3s all;
   display: inline-block;
-  background-color: aqua;
+  /* background-color: aqua; */
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 .downSvg {
   transition: all 0.3s cubic-bezier(0.85, 0.29, 0.74, 1.07);
@@ -195,8 +198,8 @@ body {
   height: 100px;
 }
 .schoolLogo {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 @keyframes borderAnimation {
   0% {
