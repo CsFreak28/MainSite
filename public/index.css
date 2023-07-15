@@ -123,15 +123,15 @@ body {
   width: 100%;
 }
 .rinovateLogoSpace {
-  width: fit-content;
+  width: 35px;
   /* height: 30px; */
   transition: 0.3s all;
   display: inline-block;
-  /* background-color: aqua; */
+  background-color: aqua;
   overflow: hidden;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px; */
 }
 .downSvg {
   transition: all 0.3s cubic-bezier(0.85, 0.29, 0.74, 1.07);
@@ -174,9 +174,10 @@ body {
   height: 100px;
   background: linear-gradient(0deg, #111b21, rgba(37, 211, 102, 1) 100%);
 }
-.mulitplicationSign {
-  color: #25d366;
+.multiplicationSign {
+  /* color: #25d366; */
   font-size: 2rem;
+  font-family: "ghiantin";
 }
 .imageBackDrop {
   display: block;
