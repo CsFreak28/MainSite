@@ -12,7 +12,7 @@ export function addUniversityLogo(element, uniDetail) {
   //add multiplication sign
   let theContainer = element.querySelector(".rinovateLogoSpace");
   if (theContainer !== null) {
-    theContainer.style.width = "100px";
+    theContainer.style.width = "80px";
   }
   let theMultiplicationSign = document.createElement("span");
   theMultiplicationSign.textContent = "x";
