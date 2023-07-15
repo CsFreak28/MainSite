@@ -8,8 +8,12 @@ export async function addUniversity(element, uniDetail) {
   await typeTextWithPauses(uniDetail.uniName, ["ghhohguigv"], element);
 }
 export function addUniversityLogo(element, uniDetail) {
-  let logoSpace = element.querySelector(".rinovateLogoSpace");
+  let logoSpace = element.querySelector(".innerLogoSpace");
   //add multiplication sign
+  let theContainer = element.querySelector(".rinovateLogoSpace");
+  if (theContainer !== null) {
+    theContainer.style.width = "100px";
+  }
   let theMultiplicationSign = document.createElement("span");
   theMultiplicationSign.textContent = "x";
   theMultiplicationSign.classList.add("multiplicationSign");
