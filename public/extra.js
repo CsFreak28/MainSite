@@ -1,18 +1,24 @@
 import {
-  processUserMessage,
-  sendUserMessage,
+  // processUserMessage,
+  // sendUserMessage,
   typeTextWithPauses,
 } from "./chatBot.js";
+import { createEmphasisText } from "./utils.js";
 export async function addUniversity(element, uniDetail) {
   addUniversityLogo(element, uniDetail);
-  await typeTextWithPauses(uniDetail.uniName, ["ghhohguigv"], element);
+  let emphasisText = createEmphasisText(element);
+  await typeTextWithPauses(uniDetail.uniName, ["ghhohguigv"], emphasisText);
+  await typeTextWithPauses(uniDetail.collabDetails, [" "], element);
+  let cursor = element.querySelector(".cursor");
+  console.log(cursor);
+  cursor.style.display = "none";
 }
 export function addUniversityLogo(element, uniDetail) {
   let logoSpace = element.querySelector(".innerLogoSpace");
   //add multiplication sign
   let theContainer = element.querySelector(".rinovateLogoSpace");
   if (theContainer !== null) {
-    theContainer.style.width = "80px";
+    theContainer.style.width = "90px";
   }
   let theMultiplicationSign = document.createElement("span");
   theMultiplicationSign.textContent = "x";
