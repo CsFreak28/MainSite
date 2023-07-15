@@ -125,7 +125,7 @@ body {
 .innerLogoSpace {
   /* background-color: red; */
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: 10px;
 }
 .rinovateLogoSpace {
@@ -133,7 +133,7 @@ body {
   /* height: 35px; */
   transition: 0.3s all;
   display: inline-block;
-  background-color: aqua;
+  /* background-color: aqua; */
   overflow: hidden;
   /* display: flex;
   align-items: center;
@@ -333,6 +333,9 @@ body {
   top: 13%;
   padding: 10px 15px;
   border-radius: 5px;
+}
+.rinoMessage {
+  font-weight: 100;
 }
 .footerText {
   font-size: 0.8rem;
