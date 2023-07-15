@@ -135,20 +135,18 @@ function processPreWrittenMsg(msg) {
       });
     });
   } else if (msg.includes("clients")) {
-    // rinovateIsNoLongerTyping()
-    //start looping function
     const unis = [
       {
-        uniName: `Coal city university   Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, dolor nisi libero et dolorum tenetur! Vero quasi iste architecto quia a nam, beatae eum facilis, praesentium nemo, odit corporis corrupti.
-          Recusandae quis cum voluptas vel amet inventore veniam magni doloremque quam temporibus facere delectus accusantium fugit beatae magnam quia dolorem maiores, laudantium incidunt placeat numquam esse? Blanditiis aperiam autem numquam?
-          Minus nam ipsam sequi modi quasi maxime quo, repellendus assumenda? Harum cumque rerum, ea inventore itaque ex iure? At, officia tempore. Natus esse iure quae quaerat sit dicta possimus ut!`,
+        uniName: `Coal city university`,
         img: "/public/images/CCUNI LOGO.png",
-        collabDetails: "",
+        collabDetails:
+          "\n We recently collaborated with Coal city university to facilitate an in-class attendance system for their students using just their cellphones.\nWe built a WhatsApp based chatbot that has the capabilities of taking their attendance by pinpointing their location through their phones' built in GPS.",
       },
       {
-        uniName: "AE-FUNAI ",
-        img: "",
-        collabDetails: "",
+        uniName: "AE FUNAI ",
+        img: "/public/images/FUNAI LOGO.png",
+        collabDetails:
+          "\n We built a WhatsApp based chatbotbot for Federal University Ndufu Alike Ikwo that has the following features:\n(i)View their results.\n(ii)View their CGPA trend",
       },
     ];
     async function showUnis() {
