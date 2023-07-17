@@ -8,10 +8,13 @@ export async function addUniversity(element, uniDetail) {
   addUniversityLogo(element, uniDetail);
   let emphasisText = createEmphasisText(element);
   await typeTextWithPauses(uniDetail.uniName, ["ghhohguigv"], emphasisText);
-  await typeTextWithPauses(uniDetail.collabDetails, [" "], element);
-  let cursor = element.querySelector(".cursor");
-  console.log(cursor);
-  cursor.style.display = "none";
+  await typeTextWithPauses(uniDetail.collabDetails, ["ttgrrtdr"], element);
+  let cursors = [...document.querySelectorAll(".cursor")];
+  cursors.forEach((cursor) => {
+    cursor.style.visibility = "hidden";
+  });
+  // console.log("this is the cursor", cursor);
+  console.log("this is the element", element);
 }
 export function addUniversityLogo(element, uniDetail) {
   let logoSpace = element.querySelector(".innerLogoSpace");
