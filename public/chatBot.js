@@ -146,7 +146,7 @@ function processPreWrittenMsg(msg) {
         uniName: "AE FUNAI ",
         img: "/public/images/FUNAI LOGO.png",
         collabDetails:
-          "\n We built a WhatsApp based chatbotbot for Federal University Ndufu Alike Ikwo that has the following features:\n(i)View their results.\n(ii)View their CGPA trend",
+          "\n We built a WhatsApp based chatbot for Federal University Ndufu Alike Ikwo that helps students do the following:\n(i) View their results.\n(ii) View their GPA for a semester and their CGPA.\n(iii) view their CGPA trend analysis (a bar chart analysis that shows how they've performed over the semesters in school and their comparison to others)",
       },
     ];
     async function showUnis() {
